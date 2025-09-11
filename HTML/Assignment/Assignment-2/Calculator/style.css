@@ -16,6 +16,8 @@ body{
     gap: 1.6px;
     justify-content: center;
     border-radius: 0.2cm;
+    gap: 5px;
+    overflow: hidden;
     
 }
 .display{
