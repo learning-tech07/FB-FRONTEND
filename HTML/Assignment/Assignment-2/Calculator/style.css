@@ -29,6 +29,13 @@ body{
     color: rgb(208, 224, 224);
     
 }
+.clear{
+    background-color: rgb(8, 8, 33);
+
+}
+.b{
+    background-color: rgb(8, 8, 33);
+}
 .op{
     background-color: rgb(211, 9, 9);
 }
@@ -42,10 +49,10 @@ body{
     height: 50px;
     align-items: center;
     border-radius: 0.3cm;
-    background-color: rgb(20, 6, 34);
     color: aliceblue;
-    
 }
 .span-2{
     width: 150px;
+    background-color: rgb(8, 8, 33);
+
 }
