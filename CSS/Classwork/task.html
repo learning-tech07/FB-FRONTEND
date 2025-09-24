@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .container{
+        inset:0;
+        background-color:lightpink;
+        height: 800px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        perspective: 1000px;
+
+    } 
+    .card {
+    width: 200px;
+    height: 300px;
+    position: relative;
+    transform-style: preserve-3d; /* important for 3D effect */
+    transition: transform 1s;
+    cursor: pointer;
+    }
+    .card:hover {
+    transform: rotateY(180deg);
+}
+    .card-face {
+    position: absolute;
+    width: 50%;
+    height: 25%;
+    border-radius: 0.2cm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden; /* hides back face when flipped */
+}
+
+    .card1{
+        display: flex; 
+        background-color: black; 
+        color: white; 
+        align-items: center;
+        justify-content: center;
+    }
+    .card2{
+        display: flex;
+        background-color: rgba(69, 3, 3, 0.859);
+        color: aliceblue;
+        align-items: center;
+        justify-content: center;
+        transform: rotateY(180deg);
+
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-face card1"> Hello</div>
+            <div class="card-face card2"> How are you?</div>
+        </div>
+    </div>
+</body>
+</html>
