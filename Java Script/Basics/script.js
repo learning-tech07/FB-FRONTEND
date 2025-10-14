@@ -1,5 +1,3 @@
-let a;
-console.log(10);
-console.log(a);
-a = 5;
-console.log(a);
+let a = 20;
+let b = "20";
+console.log(a==b);
