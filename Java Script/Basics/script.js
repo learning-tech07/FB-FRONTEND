@@ -3,12 +3,18 @@
 //     return c+d;
 // };
 
-console.log(sum(3,4));
+// console.log(sum(3,4));
 
 // const sum = (e,f) => {
 //     return e+f;
 // };
 
-function sum(a,b){
-    return a+b;
-}
+// function sum(a,b){
+//     return a+b;
+// }
+
+const greeting = (username = "stupid") =>{
+    console.log("hello ! " + username)
+};
+
+greeting();
