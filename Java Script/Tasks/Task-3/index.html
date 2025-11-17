@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Typewriter Effect</title>
+
+  <style>
+    p {
+      font-size: 22px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+
+<body>
+
+  <p id="output"></p>
+
+  <script>
+    let text = document.getElementById("output");
+
+    document.addEventListener("keydown", function(e) {
+      text.textContent += e.key;
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Paste to Uppercase</title>
+</head>
+<body>
+
+<input id="box" placeholder="Paste something here">
+
+<script>
+  const input = document.getElementById("box");
+
+  input.addEventListener("paste", function(e) {
+    e.preventDefault(); // stop normal paste
+
+    let text = e.clipboardData.getData("text"); // get pasted text
+    input.value += text.toUpperCase();          // add uppercase version
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Drag & Drop: To Do → Done</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .board {
+      display: flex;
+      gap: 20px;
+    }
+
+    .column {
+      width: 220px;
+      min-height: 260px;
+      border: 2px dashed #bbb;
+      border-radius: 8px;
+      padding: 10px;
+      box-sizing: border-box;
+      background: #fafafa;
+    }
+
+    .column h3 {
+      margin: 6px 0 10px 0;
+      text-align: center;
+    }
+
+    .item {
+      padding: 8px 10px;
+      margin: 8px 0;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      cursor: grab;
+      user-select: none;
+    }
+
+    .item:active {
+      cursor: grabbing;
+    }
+
+    /* visual hint when dragging over a column */
+    .column.drag-over {
+      border-color: #4285f4;
+      background: #eaf1ff;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Simple Drag & Drop — To Do / Done</h2>
+
+  <div class="board">
+    <div id="todo" class="column">
+      <h3>To Do</h3>
+      <div id="item1" class="item" draggable="true">Learn JS basics</div>
+      <div id="item2" class="item" draggable="true">Write notes</div>
+      <div id="item3" class="item" draggable="true">Practice problems</div>
+    </div>
+
+    <div id="done" class="column">
+      <h3>Done</h3>
+      <!-- drop items here -->
+    </div>
+  </div>
+
+  <script>
+    // add dragstart listeners to all draggable items
+    const items = document.querySelectorAll('.item');
+    items.forEach(item => {
+      item.addEventListener('dragstart', function (e) {
+        // store the id of the dragged element
+        e.dataTransfer.setData('text/plain', e.target.id);
+        // optional: a visual drag image or effect
+        e.dataTransfer.effectAllowed = 'move';
+      });
+    });
+
+    // columns that can receive drops
+    const columns = document.querySelectorAll('.column');
+
+    columns.forEach(col => {
+      // allow drop by preventing default
+      col.addEventListener('dragover', function (e) {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        col.classList.add('drag-over'); // visual cue
+      });
+
+      col.addEventListener('dragleave', function () {
+        col.classList.remove('drag-over');
+      });
+
+      col.addEventListener('drop', function (e) {
+        e.preventDefault();
+        col.classList.remove('drag-over');
+
+        // get dragged element id and move it into this column
+        const id = e.dataTransfer.getData('text/plain');
+        const dragged = document.getElementById(id);
+        if (dragged) {
+          col.appendChild(dragged);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dancing Box</title>
+
+  <style>
+    #box {
+      width: 50px;
+      height: 50px;
+      background-color: rgb(205, 123, 205);
+      margin-left: 0px; 
+      border-radius: 50px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="box"></div>
+
+  <script>
+    let box = document.getElementById("box");
+    let position = 0;
+
+    box.addEventListener("dblclick", function () {
+      position = position + 10;
+      box.style.marginLeft = position + "px";
+    });
+  </script>
+
+</body>
+</html>

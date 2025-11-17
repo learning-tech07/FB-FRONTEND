@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Color Button</title>
+
+  <style>
+    button {
+      padding: 10px 20px;
+      font-size: 15px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button id="btn">Click me</button>
+
+  <script>
+    let btn = document.getElementById("btn");
+
+    btn.addEventListener("click", function () {
+      let r = Math.floor(Math.random() * 255);
+      let g = Math.floor(Math.random() * 255);
+      let b = Math.floor(Math.random() * 255);
+
+      btn.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+    });
+  </script>
+
+</body>
+</html>

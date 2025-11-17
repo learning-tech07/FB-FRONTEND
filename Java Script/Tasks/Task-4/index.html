@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Form</title>
+</head>
+
+<body>
+
+  <form id="myForm">
+    <input type="email" id="email" placeholder="Enter your email" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="message"></p>
+
+  <script>
+    let form = document.getElementById("myForm");
+    let emailInput = document.getElementById("email");
+    let message = document.getElementById("message");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault(); // stops page reload
+
+      let email = emailInput.value;
+      message.textContent = "Welcome, " + email + "!";
+    });
+  </script>
+
+</body>
+</html>
