@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button id="btn">Click me</button>
+
+<script>
+  const btn = document.getElementById("btn");
+
+  btn.addEventListener("click", function (e) {
+    if (e.altKey) {
+      alert("Alt + Click detected!");
+    }
+  });
+</script>
+
+</body>
+</html>

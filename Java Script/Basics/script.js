@@ -191,19 +191,14 @@
 //     if (count > 5) clearInterval(timer); 
 // }, 1000);
 
-let count = 10;
-const timer = setInterval(() => {
-    console.log("Tic Tic " + count);
-    count--;
-    if (count < 0) clearInterval(timer); 
-    if (count < 0) console.log("Boom!");  
-},
-let age=23
-function ageteller{
-    if(age>18){
-        return valid onemptied;
-    }else{
-        return not valid;
-    }
-}
+// let count = 10;
+// const timer = setInterval(() => {
+//     console.log("Tic Tic " + count);
+//     count--;
+//     if (count < 0) clearInterval(timer); 
+//     if (count < 0) console.log("Boom!");  
+// },1000);
+
+
+
 

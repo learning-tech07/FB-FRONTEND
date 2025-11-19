@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Capture vs Bubble Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .outer {
+      background: #ff6b6b; /* red */
+      padding: 24px;
+    }
+    .middle {
+      background: #6bff8c; /* green */
+      padding: 24px;
+    }
+    .inner {
+      background: #6bb0ff; /* blue */
+      padding: 24px;
+      cursor: pointer;
+    }
+    #log {
+      margin-top: 20px;
+      white-space: pre-line;
+      background: #f7f7f7;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <h3>Click the blue box (inner) to see capture & bubble order</h3>
+
+  <div id="red" class="outer">
+    Red (outer)
+    <div id="green" class="middle">
+      Green (middle)
+      <div id="blue" class="inner">
+        Blue (inner) — click me
+      </div>
+    </div>
+  </div>
+
+  <div id="log"></div>
+
+  <script>
+    const logEl = document.getElementById('log');
+
+    function writeLog(text) {
+      console.log(text);
+      logEl.textContent += text + "\n";
+    }
+
+    // helper to attach a capture and bubble listener for an element
+    function attachBoth(el, name) {
+      el.addEventListener('click', function(e) {
+        writeLog(name + " - capture");
+      }, true); // capture listener
+
+      el.addEventListener('click', function(e) {
+        writeLog(name + " - bubble");
+      }, false); // bubble listener
+    }
+
+    attachBoth(document.getElementById('red'), "Red");
+    attachBoth(document.getElementById('green'), "Green");
+    attachBoth(document.getElementById('blue'), "Blue");
+
+    // Clear log on each click so you see only the latest sequence
+    document.addEventListener('click', function() {
+      // we clear first line to show new sequence only after a short delay
+      // (this keeps the click that triggered the log visible)
+      setTimeout(() => {
+        // do nothing here — leaving logs so you can see them (optional)
+      }, 0);
+    });
+
+  </script>
+</body>
+</html>

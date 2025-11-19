@@ -1,0 +1,141 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <style>
+        .btn{
+            background-color: rgb(3, 135, 3);
+        }
+        .delete{
+            background-color: rgb(183, 12, 12);
+        }
+        #Heading{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .tasks{
+            display: flex;
+            
+            padding: 5px;
+        
+        }
+        .added{
+            display: flex;
+            
+        }
+         li {
+        list-style: circle;
+        padding: 5px;
+        margin: 5px 0;
+        }
+
+    </style>
+
+</head>
+<body>
+    <H1 id="Heading">To Do List</H1>
+    <div class="tasks">
+        <input id= "toDo"  type="text" placeholder="To Do">
+        <select name="Set Priority">
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+        </select> 
+        <button class="btn">Add Task</button>   
+    </div>
+    <div class="added">
+        <li class="list" >
+            <ul class="addedTask">
+            </ul>
+        </li>
+        <button class="delete">Delete</button>
+    </div>
+    <script>
+        let t = document.getElementsByClassName("addedTask")
+        let box = document.getElementsByClassName("added")
+        let task = document.createElement()
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        ul {
+            list-style-type: circle; 
+            padding-left: 20px;
+        }
+
+        li {
+            padding: 8px;
+            margin: 6px 0;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .high { background-color: red; }
+        .medium { background-color: orange; }
+        .low { background-color: lightgreen; }
+
+        .done { text-decoration: line-through; }
+    </style>
+</head>
+<body>
+
+    <h3>Task Manager</h3>
+
+    <input type="text" id="taskInput" placeholder="Enter task">
+
+    <select id="priority">
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+    </select>
+
+    <button onclick="addTask()">Save Task</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        function addTask() {
+            const taskText = document.getElementById("taskInput").value;
+            const level = document.getElementById("priority").value;
+
+            if (taskText.trim() === "") {
+                alert("Please enter a task");
+                return;
+            }
+
+            // Create LI
+            const li = document.createElement("li");
+            li.classList.add(level); // add priority color class
+
+            // Create text span
+            const span = document.createElement("span");
+            span.textContent = "✔ " + taskText;  // tick mark
+            li.appendChild(span);
+
+            // Delete button
+            const delBtn = document.createElement("button");
+            delBtn.textContent = "Delete";
+            delBtn.onclick = function () {
+                li.classList.toggle("done"); // line-through
+            };
+            li.appendChild(delBtn);
+
+            document.getElementById("taskList").appendChild(li);
+
+            // clear input
+            document.getElementById("taskInput").value = "";
+        }
+    </script>
+
+</body>
+</html>

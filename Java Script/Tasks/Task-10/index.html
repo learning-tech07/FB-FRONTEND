@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button id="parent">
+  Parent Button
+  <button id="child">Child Button</button>
+</button>
+
+<script>
+  const parentBtn = document.getElementById("parent");
+  const childBtn = document.getElementById("child");
+
+  childBtn.addEventListener("click", function(e) {
+    alert("Child Clicked!");
+    e.stopPropagation(); // stops the parent event
+  });
+
+  parentBtn.addEventListener("click", function() {
+    alert("Parent Clicked!");
+  });
+</script>
+
+</body>
+</html>
